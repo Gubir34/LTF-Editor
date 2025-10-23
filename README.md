@@ -41,3 +41,6 @@ sudo apt install python3-tk
 
 # On Windows
 # Tkinter comes preinstalled with Python
+
+## Note:
+You must be in the working directory of the python file and ltf.png
