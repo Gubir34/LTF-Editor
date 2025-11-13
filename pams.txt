@@ -1,0 +1,1 @@
+mainfile = ltf_editor.py
