@@ -1,27 +1,13 @@
+import os
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget
 
-class LTFEditor(QMainWindow):
-    def __init__(self):
-        super().__init__()
+def get_resource_path(relative_path):
+    """ Get the absolute path to the resource, works for development and for PyInstaller """
+    try:
+        # PyInstaller creates a `_MEIPASS` folder in the temporary directory
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
-        self.setWindowTitle("LTF Editor")
-        self.setGeometry(100, 100, 300, 200)
-
-        self.initUI()
-
-    def initUI(self):
-        layout = QVBoxLayout()
-
-        label = QLabel("Welcome to LTF Editor")
-        layout.addWidget(label)
-
-        centralWidget = QWidget()
-        centralWidget.setLayout(layout)
-        self.setCentralWidget(centralWidget)
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    editor = LTFEditor()
-    editor.show()
-    sys.exit(app.exec_())
+# The rest of the LTF Editor GUI code goes here...
